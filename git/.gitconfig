@@ -1,0 +1,9 @@
+[core]
+	editor = vim
+
+# [core]
+# 	editor = code --wait
+
+[user]
+	name = Pavel Rakhmanov
+	email = 22203119+pavel-rakhmanov@users.noreply.github.com
