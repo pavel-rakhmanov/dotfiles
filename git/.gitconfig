@@ -1,9 +1,58 @@
-[core]
-	editor = vim
+# ref:
+# - https://github.com/mathiasbynens/dotfiles/blob/main/.gitconfig
 
-# [core]
-# 	editor = code --wait
+[alias]
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format
+	s = status -s
+
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+	# Find commits by source code
+	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+	# Find commits by commit message
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# Remove branches that have already been merged with main
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+	# List contributors with number of commits
+	contributors = shortlog --summary --numbered
+
+	# Show the user email for the current repository
+	whoami = config user.email
+
+	tags = tag -l
+
+[core]
+
+	# detects filemode changes
+	filemode = true
+
+	editor = vim
+	excludesfile = ~/.gitignore_global
 
 [user]
+
 	name = Pavel Rakhmanov
 	email = 22203119+pavel-rakhmanov@users.noreply.github.com
+
+[color]
+
+	# Use colors in Git commands that are capable of colored output when outputting to the terminal
+	ui = auto
+
+[help]
+
+	# autocorrects git commands and executes the inferred command
+	# dangerous this just autocorrected my git rename to git rebase, lucky it errored out...
+	autocorrect = 0
+
+[init]
+
+	defaultBranch = main
