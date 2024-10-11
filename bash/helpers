@@ -13,6 +13,17 @@ function create_symlink() {
     fi
 }
 
+# Check if a command is installed
 function is_command_installed() {
     command -v "$1" > /dev/null 2>&1
+}
+
+# Check if a program is installed and exit if it is not
+function is_command_installed_or_exit() {
+    local PROGRAM="$1"
+
+    if ! is_command_installed "$PROGRAM"; then
+        echo "$PROGRAM is not installed. Exiting..."
+        exit 1
+    fi
 }
