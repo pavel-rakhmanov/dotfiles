@@ -9,3 +9,9 @@ brew list
 ```sh
 brew list --cask
 ```
+
+Dump currently installed packages to the file
+
+```sh
+brew bundle dump --describe --file Brewfile.local
+```
