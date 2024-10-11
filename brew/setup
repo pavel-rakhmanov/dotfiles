@@ -7,6 +7,8 @@
 
 . ../bash/helpers
 
+is_command_installed_or_exit "xcode-select"
+
 if ! is_command_installed "brew"; then
     echo "Brew is not installed. Installing Brew..."
 

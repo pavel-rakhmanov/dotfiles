@@ -2,6 +2,8 @@
 
 . ../bash/helpers
 
+is_command_installed_or_exit "brew"
+
 if ! is_command_installed "git"; then
     echo "Git is not installed. Installing Git via Brew..."
 
