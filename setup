@@ -1,7 +1,8 @@
 #!/bin/bash
 
 pwd=$(pwd)
-directories=("brew" "git")
+
+directories=("xcode" "brew" "git")
 
 for directory in "${directories[@]}"; do
     echo "Setting up $directory..."
